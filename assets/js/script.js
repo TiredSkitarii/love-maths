@@ -1,5 +1,27 @@
-function runGame() {
+// Wait for DOM to load before running Game
+document.addEventListener("DOMContentLoaded", function() {
+    let buttons = document.getElementsByTagName("button");
+    
+    for (let button of buttons) {
+        button.addEventListener("click", function() {
+            if (this.getAttribute("data-type") === "submit") {
+                alert("you clicked Submit!");
+            } else {
+                let gameType = this.getAttribute("data-type");
+                alert(`you clicked ${gameType}`);
+            }
+        })
+    }
+})
 
+/**
+ * Main game Loop - called when the script first loads
+ * and after the user's answer is processed
+ */
+function runGame() {
+    // creates two random numbers between 1 and 25
+    let num1 = Math.floor(Math.random() * 25) + 1;
+    let num2 = Math.floor(Math.random() * 25) + 1;
 }
 
 function checkAnswer() {
@@ -31,5 +53,5 @@ function displayMultiplyQuestion() {
 }
 
 function displayDivisionQuestion() {
-    
+
 }
